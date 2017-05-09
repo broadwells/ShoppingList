@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Lab 19</title>
+
+</head>
+
+<body>
+ 	<h3>Welcome!</h3>
+	<h4>Please select items to add to your cart: </h4>
+	<div>
+		<ol>
+			 <li>
+			 	<span>Candy Bar</span><button name="btn1" type="submit" onclick="addButton1()">+</button>
+			 	<p>1.25</p>
+			 </li>
+			 <li>
+			 	<span>Apple</span><button name="btn2" type="submit" onclick="addButton2()">+</button>
+			 	<p>0.50</p>
+			 </li>
+			 <li>
+			 	<span>Banana</span><button name="btn3" type="submit" onclick="addButton3()">+</button>
+			 	<p>0.99</p>
+			 </li>
+			 <li>
+			 	<span>Fruit Juice</span><button name="btn4" type="submit" onclick="addButton4()">+</button>
+			 	<p>2.50</p>
+			 </li>
+			 <li>
+			 	<span>Crackers</span><button name="btn5" type="submit" onclick="addButton5()">+</button>
+			 	<p>2.99</p>
+			 </li>
+		</ol>
+
+	</div>
+
+	<p id="shoppingcart"><button name="print" type="button" onclick="printCart()">Print Shopping Cart</button>
+	</p>
+	<p id="total"><button name="total" type="button" onclick="printTotal()">Print Total Amount</button>
+	</p>
+
+	<script>
+		var listItem = [];
+		var itemPrice = [];
+		function addButton1(){
+			listItem.push(document.getElementsByTagName('span')[0].innerHTML);
+			itemPrice.push(document.getElementsByTagName('p')[0].innerHTML);
+		}
+		function addButton2(){
+			listItem.push(document.getElementsByTagName('span')[1].innerHTML);
+			itemPrice.push(document.getElementsByTagName('p')[1].innerHTML);
+		}
+		function addButton3(){
+			listItem.push(document.getElementsByTagName('span')[2].innerHTML);
+			itemPrice.push(document.getElementsByTagName('p')[2].innerHTML);
+		}
+		function addButton4(){
+			listItem.push(document.getElementsByTagName('span')[3].innerHTML);
+			itemPrice.push(document.getElementsByTagName('p')[3].innerHTML);
+		}
+		function addButton5(){
+			listItem.push(document.getElementsByTagName('span')[4].innerHTML);
+			itemPrice.push(document.getElementsByTagName('p')[4].innerHTML);
+		}
+		function printCart(){
+			var printThis = "";
+		    for(var i = 0; i < listItem.length; i++){
+		        printThis += "<br>"+listItem[i] + " " + itemPrice[i];
+
+		    }
+    		document.getElementById('shoppingcart').innerHTML = "Shopping Cart: " + printThis;
+		}
+		function printTotal(){
+			var num = 0;
+			var total = 0;
+			for(var i = 0; i < itemPrice.length; i++){
+				num = parseFloat(itemPrice[i]);
+				total += num;
+			}
+			document.getElementById('total').innerHTML= "Total amount: $" + total;
+		}
+		
+
+	</script>
+
+
+</body>
+</html>
